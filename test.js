@@ -1,41 +1,58 @@
+const cakeTypes = [
+    { weight: 7, value: 160 },
+    { weight: 3, value: 90 },
+    { weight: 2, value: 15 },
+];
+
+const cakesUnit = []
+let haul = 0;
 
 
-const sym = {
-    'I': 1,
-    'V': 5,
-    'X': 10,
-    'L': 50,
-    'C': 100,
-    'D': 500,
-    'M': 1000
-}
+const capacity = 20;
 
 
+// maxDuffelBagValue(cakeTypes, capacity){
+//     console.log(cakeTypes)
+// }
+const maxDuffelBagValue = (cakeTypes, capacity) => {
+    cakeTypes.map((item, index) => {
+        item.unit = item.value / item.weight
 
-var romanToInt = function (s) {
-    var result = 0
+    })
+    let highestScore = cakeTypes.reduce((max, student) => {
+        return student.unit > max ? student.unit : max;
+    }, 0);
 
-    for (i = 0; i < s.length; i++) {
-        const current = sym[s[i]]
-        const next = sym[s[i + 1]]
-        if (current < next) {
-            result += next - current
-            i++;
+    for (let i = 0; i < cakeTypes.length; i++) {
+        if (highestScore == cakeTypes[i].unit) {
+            const hey = Math.floor(capacity / cakeTypes[i].weight)
+            haul += hey * cakeTypes[i].value
 
-        } else {
-            result += sym[s[i]]
+            const remaing = capacity - hey * cakeTypes[i].weight
+
+            for (let i = 0; i < cakeTypes.length; i++) {
+                if (remaing == cakeTypes[i].weight) {
+                    haul += cakeTypes[i].value
+                }
+            }
 
         }
+        console.log(haul)
+
+
+
+
 
     }
-    return result
-
-
-
 }
 
 
 
 
 
-romanToInt("MCMXCIV");
+
+
+
+
+
+maxDuffelBagValue(cakeTypes, capacity)
