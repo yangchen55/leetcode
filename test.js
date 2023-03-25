@@ -1,14 +1,14 @@
 const cakeTypes = [
-    { weight: 7, value: 160 },
-    { weight: 3, value: 90 },
-    { weight: 2, value: 15 },
+    { weight: 8, value: 210 },
+    { weight: 3, value: 75 },
+    { weight: 12, value: 355 },
 ];
 
-const cakesUnit = []
+
 let haul = 0;
 
 
-const capacity = 20;
+const capacity = 15;
 
 
 // maxDuffelBagValue(cakeTypes, capacity){
@@ -37,7 +37,7 @@ const maxDuffelBagValue = (cakeTypes, capacity) => {
             }
 
         }
-        console.log(haul)
+        console.log("you can carry this much ", haul, cakeTypes)
 
 
 
