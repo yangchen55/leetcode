@@ -1,58 +1,14 @@
-const cakeTypes = [
-    { weight: 8, value: 210 },
-    { weight: 3, value: 75 },
-    { weight: 12, value: 355 },
-];
 
+// You're working on a secret team solving coded transmissions.
 
-let haul = 0;
+// Your team is scrambling to decipher a recent message, worried it's a plot to break into a major European National Cake Vault. The message has been mostly deciphered, but all the words are backward! Your colleagues have handed off the last step to you.
 
+// Write a function reverseWords() that takes a message as an array of characters and reverses the order of the words in place.
+const message = ['c', 'a', 'k', 'e', ' ', 'p', 'o', 'u', 'n', 'd', ' ', 's', 't', 'e', 'a', 'l'];
+   
+console.log(message.join('').split(' ').reverse().join(' '))
+// const reverse = (arg) => {
 
-const capacity = 15;
-
-
-// maxDuffelBagValue(cakeTypes, capacity){
-//     console.log(cakeTypes)
+   
 // }
-const maxDuffelBagValue = (cakeTypes, capacity) => {
-    cakeTypes.map((item, index) => {
-        item.unit = item.value / item.weight
-
-    })
-    let highestScore = cakeTypes.reduce((max, student) => {
-        return student.unit > max ? student.unit : max;
-    }, 0);
-
-    for (let i = 0; i < cakeTypes.length; i++) {
-        if (highestScore == cakeTypes[i].unit) {
-            const hey = Math.floor(capacity / cakeTypes[i].weight)
-            haul += hey * cakeTypes[i].value
-
-            const remaing = capacity - hey * cakeTypes[i].weight
-
-            for (let i = 0; i < cakeTypes.length; i++) {
-                if (remaing == cakeTypes[i].weight) {
-                    haul += cakeTypes[i].value
-                }
-            }
-
-        }
-        console.log("you can carry this much ", haul, cakeTypes)
-
-
-
-
-
-    }
-}
-
-
-
-
-
-
-
-
-
-
-maxDuffelBagValue(cakeTypes, capacity)
+// reverse(message)
