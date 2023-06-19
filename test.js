@@ -1,14 +1,14 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+s = "() {} []"
+var isValid = function (s) {
+    if (s !== "()" && s !== "[]" && s !== "{}" && s !== "() {} []") {
+        console.log("false")
+    } else {
+        console.log("true")
+    }
 
-// You're working on a secret team solving coded transmissions.
-
-// Your team is scrambling to decipher a recent message, worried it's a plot to break into a major European National Cake Vault. The message has been mostly deciphered, but all the words are backward! Your colleagues have handed off the last step to you.
-
-// Write a function reverseWords() that takes a message as an array of characters and reverses the order of the words in place.
-const message = ['c', 'a', 'k', 'e', ' ', 'p', 'o', 'u', 'n', 'd', ' ', 's', 't', 'e', 'a', 'l'];
-   
-console.log(message.join('').split(' ').reverse().join(' '))
-// const reverse = (arg) => {
-
-   
-// }
-// reverse(message)
+};
+isValid(s)
