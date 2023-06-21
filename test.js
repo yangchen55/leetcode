@@ -1,24 +1,25 @@
 /**
- * @param {number[]} nums1
- * @param {number[]} nums2
- * @return {number}
+ * @param {string} s
+ * @param {string} p
+ * @return {boolean}
  */
-nums1 = [1, 3], nums2 = [2]
-var findMedianSortedArrays = function (nums1, nums2) {
-    const total = [...nums1, ...nums2].sort((a, b) => a - b)
-    const middleIndex = Math.floor(total.length / 2);
-
-    console.log(total)
-    if (total.length % 2 === 0) {
-        const result = ((total[middleIndex - 1]) + (total[middleIndex])) / 2
-        console.log(total, result)
-    } else {
-        // const average = total.reduce((accumulater, currentValue) => accumulater + currentValue) / total.length
-        const result = total[middleIndex]
-        console.log(result)
-
+const isMatch = function (s, p) {
+    if (p.length === 0) {
+        return s.length === 0;
     }
 
+    const isFirstMatch = s.length > 0 && (s[0] === p[0] || p[0] === '.');
+
+    if (p.length >= 2 && p[1] === '*') {
+        return (
+            isMatch(s, p.slice(2)) || (isFirstMatch && isMatch(s.slice(1), p))
+        );
+    }
+
+    return isFirstMatch && isMatch(s.slice(1), p.slice(1));
 };
 
-findMedianSortedArrays(nums1, nums2)
+// Example usage:
+console.log(isMatch("aa", "a"));    // Output: false
+console.log(isMatch("aa", "a*"));   // Output: true
+console.log(isMatch("ab", ".*"));   // Output: true
