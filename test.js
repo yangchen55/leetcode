@@ -1,35 +1,23 @@
-const digits = "24"
-const letterCombinations = function (digits) {
-    const digitToLetters = {
-        '2': ['a', 'b', 'c'],
-        '3': ['d', 'e', 'f'],
-        '4': ['g', 'h', 'i'],
-        '5': ['j', 'k', 'l'],
-        '6': ['m', 'n', 'o'],
-        '7': ['p', 'q', 'r', 's'],
-        '8': ['t', 'u', 'v'],
-        '9': ['w', 'x', 'y', 'z']
-    };
 
-    const result = [];
 
-    const backtrack = (combination, nextDigits) => {
-        if (nextDigits.length === 0) {
-            result.push(combination);
-            return;
-        }
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val, next) {
+ *     this.val = (val===undefined ? 0 : val)
+ *     this.next = (next===undefined ? null : next)
+ * }
+ */
+/**
+ * @param {ListNode} list1
+ * @param {ListNode} list2
+ * @return {ListNode}
+ */
+const list1 = []
+const list2 = [0]
 
-        const letters = digitToLetters[nextDigits[0]];
-        console.log(letters)
-        for (let i = 0; i < letters.length; i++) {
-            backtrack(combination + letters[i], nextDigits.slice(1));
-        }
-    };
+var mergeTwoLists = function (list1, list2) {
+    list1.splice(1, 0, ...list2)
+    console.log(list1.sort())
 
-    if (digits.length !== 0) {
-        backtrack('', digits);
-    }
-
-    return result;
 };
-letterCombinations(digits)
+mergeTwoLists(list1, list2)
